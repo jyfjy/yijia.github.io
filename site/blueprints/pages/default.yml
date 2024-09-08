@@ -1,0 +1,41 @@
+title: Default Page
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          title:
+            label: Title
+            type: text
+          year:
+              label: Year
+              type: number
+          material:
+            label: Material
+            type: text
+          size:
+            label: Size
+            type: text
+          cv:
+            label: CV
+            type: textarea
+          text:
+            label: Artist Statement
+            type: textarea
+          contact:
+             label: Contact
+             type: textarea
+  sidebar:
+    width: 1/3
+    sections:
+      pages:
+        type: pages
+        template: default
+      files:
+        type: files
+
+        
+

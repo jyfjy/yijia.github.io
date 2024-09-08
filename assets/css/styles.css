@@ -1,0 +1,355 @@
+
+@font-face {
+    font-family: 'Standard';
+    src:  url('standard-book-webfont.woff') format('woff');
+  }
+@font-face {
+    font-family: 'Standard-Italic';
+    src: url('standard-book-italic-webfont.woff') format('woff');
+}
+@font-face {
+    font-family: 'Social';
+    src: url('ABCSocialPlusVariable.ttf') format('truetype');
+}
+
+
+  html {
+  font-family: "Standard", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  line-height: 1.4em;
+  margin-top: 20px;
+  padding: 0 120px; /* Set page margin on left and right */
+  box-sizing: border-box;
+}
+
+.italic {
+    font-family: 'Standard-Italic', sans-serif;
+    margin-bottom: 0px;
+    line-height: 1.2em;
+}
+.work-title {
+    font-family: 'Standard-Italic', sans-serif;
+    margin-bottom: 0px;
+}
+
+.old-style-number{
+    font-family: 'Social', sans-serif;
+	font-feature-settings: "rlig" 1, "rvrn" 1, "kern" 1, "rclt" 1, "onum" 1, "ss02" 1;
+	font-variation-settings: "wght" 415, "wdth" 4.8, "ital" 0;
+    font-size: 15.2px;
+}
+  
+
+.header {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: center; /* Space out the name and menu */
+    padding: 0px 0px; /* Optional padding around the header */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.header .menu {
+    flex-grow: 1; /* Let the menu take up remaining space */
+    display: flex;
+    justify-content: center;
+}
+
+header .menu ul {
+    list-style: none; /* Remove bullets */
+    padding: 0; /* Remove default padding */
+    margin: 0; 
+    display: flex; /* Align items in a row */
+    width: 100%;
+}
+
+.header .menu ul li {
+    margin-right: 40px; /* Default space between items */
+}
+
+.header .menu ul li:nth-last-child(2) {
+    margin-left: auto; /* Push the second last item to the right */
+}
+
+.header .menu ul li:last-child {
+    margin-right: 0; /* No margin on the right for the last item */  
+}
+
+
+header .menu ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Set the text color */
+    padding: 0px 0px; /* Add padding around the link */
+    display: block; /* Make the entire area of the link clickable */
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+/* .italic:hover{
+    text-decoration: underline;
+    text-decoration-style: dotted;
+} */
+
+.works {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+    list-style: none;
+    grid-column-gap: 60px; /* Match the gap to the left/right page padding */
+    grid-row-gap: 5rem; /* Space between rows */
+    padding: 0;
+    margin: 0 auto;
+    width: 100%; /* Full width minus page padding */
+    max-width: 4000px; /* Set a max width to avoid stretching on large screens */
+    justify-content: space-between;
+}
+
+.works img {
+    width: auto;
+    height: 10rem; /* Fixed height for all images */
+    display: block;
+    margin: 0 auto 0.2rem;
+    object-fit: contain; /* Maintain aspect ratio and cover the entire area */
+}
+
+
+figure {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+/* Optional: Style figcaption to ensure it behaves well in responsive layouts */
+figcaption {
+    opacity: 0;
+    visibility: hidden;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 0.5em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    color: black;
+}
+
+figure {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Reveal figcaption on hover */
+
+figure:hover img {
+    opacity: 0;
+    /* transition: opacity 0s ease-in-out; */
+}
+
+figure:hover 
+figcaption {
+    opacity: 1;
+    /* transition: opacity 0s ease-in-out; */
+    visibility: visible;
+}
+
+/* Adjust grid for smaller screens */
+@media (min-width: 3001px) and (max-width: 4000px) {
+    .works {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    header .menu ul {
+        width: calc(90% - ((100 / 999) * (100vw - 3001px)));
+    }
+    .works img {
+        height: 270px;
+    }
+}
+
+@media (min-width: 2501px) and (max-width: 3000px) {
+    .works {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    header .menu ul {
+        width: calc(92% - ((100 / 499) * (100vw - 2501px)));
+    }
+    .works img {
+        height: 240px;
+    }
+}
+
+@media (min-width: 2001px) and (max-width: 2500px) {
+    .works {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    header .menu ul {
+        width: calc(94% - ((100 / 499) * (100vw - 2001px)));
+    }
+    .works img {
+        height: 220px;
+    }
+}
+
+@media (min-width: 1801px) and (max-width: 2000px) {
+    .works {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    header .menu ul {
+        width: calc(80% - ((100 / 499) * (100vw - 2501px)));
+    }
+    .works img {
+        height: 200px;
+    }
+}
+
+@media (min-width: 1601px) and (max-width: 1800px) {
+    html {
+        padding: 0 30px;
+    }
+    .works {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    header .menu ul {
+        width: calc(77% - ((100 / 499) * (100vw - 2501px)));
+    }
+    .works img {
+        height: 200px;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+    html {
+        padding: 0 30px;
+    }
+    header .menu ul {
+        width: calc(75% - ((89.5 / 499) * (100vw - 2501px)));
+    }
+    .works {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .works img {
+        height: 180px;
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1200px) {
+    html {
+        padding: 0 50px;
+    }
+    header .menu ul {
+        width: calc(74% - ((88 / 499) * (100vw - 2501px)));
+    }
+    .works {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .works img {
+        height: 180px;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+    html {
+        padding: 0 50px;
+    }
+    header .menu ul {
+        width: 97%;
+    }
+    .works {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .works img {
+        height: calc(120px + (40 * ((100vw - 801px) / 200)));
+    }
+}
+
+
+@media (min-width: 601px) and (max-width: 800px) {
+    html {
+        padding: 0 50px;
+    }
+    .works {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .works img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        padding: 0 30px;
+    }
+    
+    .header .menu ul li:nth-last-child(2) {
+        margin-left: 0px;
+    }
+
+    .header .menu ul {
+        width: 100%;
+        display: flex; 
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    .header .menu ul li{
+        margin-right: 0; /* Remove margin as flexbox will handle the spacing */
+        flex: 1; /* Ensure each list item takes up equal width */
+        text-align: center; 
+    }
+
+    .works {
+        display: grid; /* Use grid layout */
+        justify-items: center; /* Centers the content horizontally */
+        grid-template-columns: 1fr; /* Ensures single-column layout */
+        grid-row-gap: 0rem; 
+    }
+    
+    figure {
+        display: block; /* Allows the figure to take up the full width in the grid */
+        margin: 0;
+        padding: 0;
+        text-align: center; /* Ensures figcaption and other content inside the figure are centered */
+    }
+    .works {
+        width: 100%; /* Ensure the container is 100% wide */
+        max-width: 100%; /* Prevent the container from exceeding 100% of its parent */
+    }
+    .works img {
+        width: 100%;
+        height: auto;
+        display: block; /* Removes inline-block behavior, ensures block-level layout */
+        margin: 0 auto; /* Centers the image */
+    }
+    p {
+        margin: 0; /* Removes the default margins */
+        display: block; /* Keeps it as a block-level element, or you can change it if desired */
+    }
+    .italic {
+        margin-top: 0px;
+        line-height: 1em;
+    }
+
+    figcaption {
+        opacity: 1;
+        visibility: visible;
+        font-size: 1em;
+        text-align: center;
+        left: 0;
+        width: 100%;
+        color: black;
+        position: static; 
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+}
+
+

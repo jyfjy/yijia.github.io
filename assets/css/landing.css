@@ -1,0 +1,6 @@
+img {
+    width: 30%; /* Set the width to 30% of the original width */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Ensure no extra space around images */
+    margin: 0 auto; /* Center the image within its container, optional */
+}
